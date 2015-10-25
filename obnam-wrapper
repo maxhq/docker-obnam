@@ -1,0 +1,25 @@
+#!/bin/sh
+# vdemeester/obnam entrypoint
+
+DST="/obnam/DST"
+SRC="/obnam/SRC"
+
+# Use default directories if no arguments were given to docker image
+if test -z "$1"; then
+   if ! test "$(ls -A $SRC)"; then
+      echo "$SRC folder is empty, skipping backup"
+      exit 1
+   fi
+   if ! mountpoint -q $DST; then
+       echo "$DST is not mounted, please pass sth. like this to docker:"
+       echo "  -v /backup/target/dir:/obnam/destination"
+       echo "(the directory after the double colon is fixed)"
+       exit 1
+   fi
+   echo "Executing: obnam backup -r $DST $SRC"
+   obnam backup -r $DST $SRC
+
+# Otherwise: use individual arguments
+else
+    obnam "$@"
+fi
