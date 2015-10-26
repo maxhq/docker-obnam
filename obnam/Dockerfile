@@ -5,7 +5,7 @@
 FROM debian:jessie
 
 # Install obnam
-RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list && \
+RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get -y install ssh && \
     apt-get -y -t jessie-backports install obnam && \
