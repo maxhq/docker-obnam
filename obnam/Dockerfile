@@ -1,6 +1,6 @@
 ## -*- docker-image-name: "maxhq/obnam" -*-
 
-# shamelessly stolen from https://github.com/vdemeester/dockerfiles
+# base version shamelessly copied from https://github.com/vdemeester/dockerfiles
 
 FROM debian:jessie
 
@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Let's define some convention folders
-RUN mkdir -p /obnam/source /obnam/destination
+RUN mkdir -p /source /dest
 
 # Add a user with uid 1000
 RUN adduser --shell /bin/bash --uid 1000 --disabled-password --gecos "" user && \

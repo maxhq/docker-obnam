@@ -1,8 +1,7 @@
 #!/bin/sh
-# vdemeester/obnam entrypoint
 
-DST="/obnam/DST"
-SRC="/obnam/SRC"
+SRC="/source"
+DST="/dest"
 
 # Use default directories if no arguments were given to docker image
 if test -z "$1"; then
@@ -12,7 +11,7 @@ if test -z "$1"; then
    fi
    if ! mountpoint -q $DST; then
        echo "$DST is not mounted, please pass sth. like this to docker:"
-       echo "  -v /backup/target/dir:/obnam/destination"
+       echo "  -v /backup/target/dir:$DST"
        echo "(the directory after the double colon is fixed)"
        exit 1
    fi
