@@ -6,16 +6,15 @@ DST="/dest"
 # Use default directories if no arguments were given to docker image
 if test -z "$1"; then
    if ! test "$(ls -A $SRC)"; then
-      echo "$SRC folder is empty, skipping backup"
+      >&2 echo "$SRC folder is empty, skipping backup"
       exit 1
    fi
    if ! mountpoint -q $DST; then
-       echo "$DST is not mounted, please pass sth. like this to docker:"
-       echo "  -v /backup/target/dir:$DST"
-       echo "(the directory after the double colon is fixed)"
+       >&2 echo "$DST is not mounted, please pass sth. like this to docker:"
+       >&2 echo "  -v /backup/target/dir:$DST"
+       >&2 echo "(the directory after the double colon is fixed)"
        exit 1
    fi
-   echo "Executing: obnam backup -r $DST $SRC"
    obnam backup -r $DST $SRC
 
 # Otherwise: use individual arguments
