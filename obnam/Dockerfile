@@ -7,7 +7,8 @@ FROM debian:jessie
 # Install obnam
 RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports && \
     apt-get update && \
-    apt-get -y install obnam ssh && \
+    apt-get -y install ssh && \
+    apt-get -y -t jessie-backports install obnam && \
     apt-get clean
 
 # Let's define some convention folders
