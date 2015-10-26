@@ -1,6 +1,6 @@
-# Obnam 1.8 docker image
+# Obnam docker image
 
-This image contains the *obnam* backup tool (v1.8). It is available on the Docker hub:
+This image contains the *Obnam* backup tool (v1.17 as of 2015-10-26). It is available on the Docker hub:
 [maxhq/obnam](https://registry.hub.docker.com/u/maxhq/obnam/) (it's a modified
 version of [vdemeester/obnam](https://registry.hub.docker.com/u/vdemeester/obnam/)
 - distinction: less magic, option to set custom arguments and a bit more docs).
