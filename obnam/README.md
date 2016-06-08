@@ -14,7 +14,7 @@ It is a modification of [vdemeester/obnam](https://registry.hub.docker.com/u/vde
 By default, the image will run `obnam` binary and backup */source* to */dest* (directories inside Docker container):
 
 ```bash
-$ docker run \
+$ docker run --rm \
   -v <SOURCE>:/source:ro \
   -v <DEST>:/dest \
   maxhq/obnam
@@ -44,7 +44,7 @@ $ docker run maxhq/obnam --version
 ### Example 2: list keys
 
 ```bash
-$ docker run \
+$ docker run --rm \
   -v <DEST>:/dest \
   maxhq/obnam list-keys -r /dest
 ```
@@ -64,7 +64,7 @@ $ obnam list-keys -r /dest
 Example: you created an Obnam config file on your Docker host at **/home/tux/myobnam.cfg**. Obnam (in the container) searches several places for config files, firstly */etc/obnam.conf*. So the easiest way to pass your config is:
 
 ```bash
-$ docker run \
+$ docker run --rm \
   -v /home/tux/myobnam.cfg:/etc/obnam.conf:ro \
   ...
 ```
@@ -79,7 +79,7 @@ Your Host filesystem:
 You have to tell Docker to mount these source and destination host directories to */source* and */dest* respectively inside the Docker container. Let's mount the source as read-only to be sure it does not get messed up.
 
 ```bash
-$ docker run \
+$ docker run --rm \
   -v /home/tux/Documents:/source:ro \
   -v /mnt/mycloud:/dest \
   maxhq/obnam
@@ -93,7 +93,7 @@ To backup to an `sftp` target, we will need to customize the `obnam` call, preve
 * **~/.ssh/** to */root/.ssh/* (to be able to use ssh keys)
 
 ```bash
-$ docker run --ti \
+$ docker run --rm --ti \
   -v ~/Documents:/source:ro \
   -v ~/.ssh/:/root/.ssh/:ro \
   maxhq/obnam backup -r sftp://backup.host/backup/destination /source
@@ -124,7 +124,7 @@ Now just mount:
 like this:
 
 ```bash
-$ docker run -ti \
+$ docker run --rm -ti \
   -v /home/tux/Documents:/source:ro \
   -v ~/myobnam.conf:/etc/obnam.conf:ro \
   -v ~/.gnupg:/root/.gnupg:ro \
