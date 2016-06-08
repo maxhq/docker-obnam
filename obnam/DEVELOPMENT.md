@@ -8,8 +8,8 @@
   * build Docker image:
     * `docker build -t maxhq/obnam .`
   * test Docker image:
-    * `docker run -ti maxhq/obnam --version`
-    * `docker run -ti --entrypoint /bin/bash maxhq/obnam`
+    * `docker run --rm -ti maxhq/obnam --version`
+    * `docker run --rm -ti --entrypoint /bin/bash maxhq/obnam`
 * Commit and push to GitHub:
   * `git commit -a`
   * `git push`

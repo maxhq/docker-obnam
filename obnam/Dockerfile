@@ -8,7 +8,8 @@ FROM debian:sid
 RUN apt-get update && \
     apt-get -q -y install ssh && \
     apt-get -q -y install obnam=1.19.1-1 && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Let's define some convention folders
 RUN mkdir -p /source /dest
