@@ -2,24 +2,23 @@
 
 # base version shamelessly copied from https://github.com/vdemeester/dockerfiles
 
-FROM debian:jessie
+FROM debian:sid
 
 # Install obnam
-RUN echo "deb http://http.debian.net/debian jessie-backports main" >> /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get -y install ssh && \
-    apt-get -y -t jessie-backports install obnam && \
+RUN apt-get update && \
+    apt-get -q -y install ssh && \
+    apt-get -q -y install obnam=1.19.1-1 && \
     apt-get clean
 
 # Let's define some convention folders
 RUN mkdir -p /source /dest
 
 # Add a user with uid 1000
-RUN adduser --shell /bin/bash --uid 1000 --disabled-password --gecos "" user && \
-    mkdir -p /home/user/run && \
-    chown -R user /home/user/run
+RUN adduser --shell /bin/bash --uid 1000 --disabled-password --gecos "" obnam && \
+    mkdir -p /home/obnam/run && \
+    chown -R obnam /home/obnam/run
 
-USER user
+USER obnam
 
 # Define default behavior
 COPY obnam-wrapper /usr/bin/

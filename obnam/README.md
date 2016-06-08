@@ -1,6 +1,6 @@
 # Obnam docker image
 
-This image contains the *Obnam* backup tool (v1.17 as of 2015-10-26).
+This image contains the backup tool *Obnam* v1.91.1.
 
 You can find it on the Docker hub:
 [maxhq/obnam](https://registry.hub.docker.com/u/maxhq/obnam/)
@@ -32,20 +32,33 @@ You have to replace **\<SOURCE\>** and **\<DEST\>** with your real host director
 
 If any arguments are given to the Docker container, those are passed on to `obnam` 1:1 and no magic takes place:
 
+### Example 1: version
+
+```bash
+$ docker run maxhq/obnam --version
+```
+
+results in
+
+```bash
+
+```
+
+### Example 2: list keys
+
 ```bash
 $ docker run -ti --rm \
   -v <DEST>:/dest \
   maxhq/obnam list-keys -r /dest
 ```
 
-... results in
+results in
 
 ```bash
 $ obnam list-keys -r /dest
 # Effectively this means:
 # obnam list-keys -r <DEST>
 ```
-
 
 # Usage
 
@@ -57,7 +70,7 @@ Let's say you created an obnam config file on your host at **/home/tux/myobnam.c
 $ docker run -ti --rm \
   -v /home/tux/myobnam.cfg:/etc/obnam.conf:ro \
   ...
-``` 
+```
 
 ## Local destination
 
@@ -120,4 +133,3 @@ $ docker run -ti --rm \
   -v ~/.gnupg:/root/.gnupg:ro \
   maxhq/obnam backup -r sftp://backup.host/backup/destination /source
 ```
-
