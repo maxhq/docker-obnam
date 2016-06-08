@@ -26,7 +26,7 @@ $ obnam backup /source /dest
 # obnam backup <SOURCE> <DEST>
 ```
 
-You have to replace **<SOURCE>** and **<DEST>** with your real host directories!
+You have to replace `<SOURCE>` and `<DEST>` with your real host directories!
 
 ## Customization
 
