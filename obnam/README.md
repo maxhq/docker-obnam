@@ -26,7 +26,7 @@ $ obnam backup /source /dest
 # obnam backup <SOURCE> <DEST>
 ```
 
-You have to replace **\<SOURCE\>** and **\<DEST\>** with your real host directories!
+You have to replace **<SOURCE>** and **<DEST>** with your real host directories!
 
 ## Customization
 
@@ -41,7 +41,7 @@ $ docker run maxhq/obnam --version
 results in
 
 ```bash
-
+1.19.1
 ```
 
 ### Example 2: list keys
