@@ -4,7 +4,7 @@ This docker image contains the backup tool *Obnam* v1.91.1.
 
 You can find it here:
 
-* GitHub: [maxhq/dockerfiles](https://github.com/maxhq/dockerfiles/tree/master/obnam)
+* GitHub: [maxhq/docker-obnam](https://github.com/maxhq/docker-obnam/tree/master)
 * Docker Hub: [maxhq/obnam](https://registry.hub.docker.com/u/maxhq/obnam/)
 
 It is a modification of [vdemeester/obnam](https://registry.hub.docker.com/u/vdemeester/obnam/) with less magic, an option to set custom arguments and a bit more docs).
