@@ -1,6 +1,6 @@
 # Obnam docker image
 
-This docker image contains the backup tool *Obnam* v1.91.1.
+This docker image contains the backup tool *Obnam* v1.21.
 
 You can find it here:
 
