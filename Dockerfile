@@ -2,14 +2,14 @@
 
 # base version shamelessly copied from https://github.com/vdemeester/dockerfiles
 
-FROM debian:sid
+FROM jgoerzen/debian-base-minimal:stretch
 
 # Install obnam
 RUN apt-get update && \
     apt-get -q -y install ssh && \
-    apt-get -q -y install obnam=1.19.1-1 && \
+    apt-get -q -y install obnam=1.21-1 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Let's define some convention folders
 RUN mkdir -p /source /dest
